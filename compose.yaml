@@ -1,0 +1,9 @@
+services:
+  jira-issue-history:
+    image: petrem/jira-issue-history
+    build:
+      context: .
+      args:
+        - RESOLVER
+
+

@@ -1,0 +1,4 @@
+- paginated responses
+- error handling
+- maybe: alternative output as JSON
+- maybe: deal with other fields beside Key

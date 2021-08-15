@@ -1,0 +1,6 @@
+# this format (`resolver: lts-x.y`) is read by Makefile and used as fpco/stack-build tag
+# if updated here, also update Makefile / Dockerfile
+resolver: lts-17.15
+packages:
+  - .
+local-bin-path: ./install/

@@ -1,0 +1,10 @@
+resolver: lts-17.15
+packages:
+  - .
+docker:
+  enable: true
+  auto-pull: false
+  network: host
+  mount-mode: delegated
+  stack-exe: download
+  repo: "fpco/stack-build"

@@ -1,0 +1,63 @@
+name:                jira-issue-history
+version:             0.0.1.0
+github:              "petrem/jira-issue-history"
+license:             BSD3
+author:              "Petre Mierluțiu"
+maintainer:          "petrem@github"
+copyright:           "2021 Petre Mierluțiu <petrem@github>"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/petrem/jira-issue-history#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+
+library:
+  source-dirs: src
+  dependencies:
+    - aeson
+    - bytestring
+    - directory
+    - filepath
+    - http-client
+    - lens
+    - lens-aeson
+    - scientific
+    - text
+    - unix
+    - unordered-containers
+    - wreq
+
+executables:
+  jira-issue-history:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - jira-issue-history
+    - text
+    - optparse-applicative
+
+tests:
+  jira-issue-history-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - jira-issue-history

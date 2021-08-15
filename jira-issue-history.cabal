@@ -1,0 +1,80 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.34.4.
+--
+-- see: https://github.com/sol/hpack
+
+name:           jira-issue-history
+version:        0.0.1.0
+description:    Please see the README on GitHub at <https://github.com/petrem/jira-issue-history#readme>
+homepage:       https://github.com/petrem/jira-issue-history#readme
+bug-reports:    https://github.com/petrem/jira-issue-history/issues
+author:         Petre Mierluțiu
+maintainer:     petrem@github
+copyright:      2021 Petre Mierluțiu <petrem@github>
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    ChangeLog.md
+
+source-repository head
+  type: git
+  location: https://github.com/petrem/jira-issue-history
+
+library
+  exposed-modules:
+      ExpandUserPath
+      Jira.Aliases
+      Jira.Changelog
+      Jira.UserDetails
+      JiraAPI
+      Output
+      Replace
+  other-modules:
+      Paths_jira_issue_history
+  hs-source-dirs:
+      src
+  build-depends:
+      aeson
+    , base >=4.7 && <5
+    , bytestring
+    , directory
+    , filepath
+    , http-client
+    , lens
+    , lens-aeson
+    , scientific
+    , text
+    , unix
+    , unordered-containers
+    , wreq
+  default-language: Haskell2010
+
+executable jira-issue-history
+  main-is: Main.hs
+  other-modules:
+      Paths_jira_issue_history
+  hs-source-dirs:
+      app
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , jira-issue-history
+    , optparse-applicative
+    , text
+  default-language: Haskell2010
+
+test-suite jira-issue-history-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_jira_issue_history
+  hs-source-dirs:
+      test
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , jira-issue-history
+  default-language: Haskell2010

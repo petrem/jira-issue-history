@@ -1,0 +1,10 @@
+Dockerfile
+compose.yaml
+.stack-work
+.git
+.gitignore
+Makefile
+TODO.md
+stack.yaml
+stack.yaml.lock
+stack.dockerintegration.yaml
