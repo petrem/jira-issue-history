@@ -44,7 +44,7 @@ reprChanges = T.unlines . map reprChange
 
 reprChange :: (IssueKey, [FromTo]) -> Text
 reprChange (key, cs) = T.concat [key, ": ", T.intercalate " -> " $  foldr go [] cs]
-  where -- foo = map (\from to -> from ++ " -> " ++ to) cs
+  where
         go (mfrom, mto) l =
           case (mfrom, mto) of (Nothing, Nothing) -> l
                                (Nothing, Just to) -> emptyKey : to .:. l
