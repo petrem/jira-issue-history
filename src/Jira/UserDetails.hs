@@ -1,8 +1,7 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE DeriveGeneric #-}
 
-module Jira.UserDetails ( UserDetails
-                        ) where
+module Jira.UserDetails (UserDetails) where
 
 import GHC.Generics
 
@@ -12,17 +11,20 @@ import Data.Text (Text)
 import Jira.Aliases (AccountType, Uri)
 
 
-data UserDetails = UserDetails { self :: !Uri
-                               -- deprecated, ignoring: , name :: Text
-                               -- deprecated, ignoring: , key :: Text
-                               , accountId :: !Text -- max 128
-                               , emailAddress :: !Text -- may be null
-                               , avatarUrls :: AvatarUrlsBean
-                               , displayName :: !Text
-                               , active :: Bool
-                               , timeZone :: !Text -- may be null
-                               , accountType :: AccountType
-                               } deriving (Generic, Show)
+data UserDetails =
+  UserDetails
+    { self :: !Uri
+ -- , name :: Text -- deprecated, ignoring
+ -- , key :: Text -- deprecated, ignoring
+    , accountId :: !Text -- max 128
+    , emailAddress :: !Text -- may be null
+    , avatarUrls :: AvatarUrlsBean
+    , displayName :: !Text
+    , active :: Bool
+    , timeZone :: !Text -- may be null
+    , accountType :: AccountType
+    }
+  deriving (Generic, Show)
 
 instance FromJSON UserDetails
 

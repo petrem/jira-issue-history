@@ -1,14 +1,19 @@
+# syntax=docker/dockerfile:1.3
+
 ARG RESOLVER=lts-17.15
 FROM fpco/stack-build:${RESOLVER} as build
 
 RUN mkdir /build
 WORKDIR /build
 
-COPY . /build
-RUN cp stack.docker.yaml stack.yaml
+COPY stack.docker.yaml /build/stack.yaml
+COPY package.yaml Setup.hs /build/
 RUN stack build --only-snapshot
 RUN stack build --only-dependencies
-RUN stack build
+
+COPY . /build
+RUN stack build --only-locals
+
 RUN stack install
 
 

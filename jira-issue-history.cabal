@@ -5,7 +5,7 @@ cabal-version: 1.12
 -- see: https://github.com/sol/hpack
 
 name:           jira-issue-history
-version:        0.0.1.0
+version:        0.0.2.0
 description:    Please see the README on GitHub at <https://github.com/petrem/jira-issue-history#readme>
 homepage:       https://github.com/petrem/jira-issue-history#readme
 bug-reports:    https://github.com/petrem/jira-issue-history/issues
@@ -25,19 +25,25 @@ source-repository head
 
 library
   exposed-modules:
-      ExpandUserPath
+      Jih
+      Jih.CLI
+      Jih.ConfigFiles
+      Jih.ExpandUserPath
+      Jih.Output.Console
       Jira.Aliases
+      Jira.API
       Jira.Changelog
+      Jira.IssueBean
+      Jira.JQL
       Jira.UserDetails
-      JiraAPI
-      Output
       Replace
   other-modules:
       Paths_jira_issue_history
   hs-source-dirs:
       src
   build-depends:
-      aeson
+      HsYAML
+    , aeson
     , base >=4.7 && <5
     , bytestring
     , directory
@@ -45,6 +51,7 @@ library
     , http-client
     , lens
     , lens-aeson
+    , optparse-applicative
     , scientific
     , text
     , unix
@@ -62,8 +69,6 @@ executable jira-issue-history
   build-depends:
       base >=4.7 && <5
     , jira-issue-history
-    , optparse-applicative
-    , text
   default-language: Haskell2010
 
 test-suite jira-issue-history-test

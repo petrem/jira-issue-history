@@ -1,14 +1,12 @@
 {-# LANGUAGE OverloadedStrings #-}
 
-module ExpandUserPath
-    (expandUserPath
-    ) where
+module Jih.ExpandUserPath (expandUserPath) where
 
 import Control.Applicative (liftA2)
 import Data.List (isPrefixOf)
 
 import System.Directory (getHomeDirectory)
-import System.FilePath (combine, normalise, joinPath, splitDirectories)
+import System.FilePath (combine, joinPath, normalise, splitDirectories)
 import System.Posix.User (UserEntry (homeDirectory), getUserEntryForName)
 
 

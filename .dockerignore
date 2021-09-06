@@ -8,3 +8,4 @@ TODO.md
 stack.yaml
 stack.yaml.lock
 stack.dockerintegration.yaml
+jira-issue-history.cabal

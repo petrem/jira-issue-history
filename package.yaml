@@ -1,5 +1,5 @@
 name:                jira-issue-history
-version:             0.0.1.0
+version:             0.0.2.0
 github:              "petrem/jira-issue-history"
 license:             BSD3
 author:              "Petre Mierluțiu"
@@ -30,8 +30,10 @@ library:
     - directory
     - filepath
     - http-client
+    - HsYAML
     - lens
     - lens-aeson
+    - optparse-applicative
     - scientific
     - text
     - unix
@@ -48,8 +50,6 @@ executables:
     - -with-rtsopts=-N
     dependencies:
     - jira-issue-history
-    - text
-    - optparse-applicative
 
 tests:
   jira-issue-history-test:
